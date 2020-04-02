@@ -48,11 +48,11 @@ import org.springframework.data.repository.Repository;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Inherited
-@SpringBootConfiguration
-@EnableAutoConfiguration
+@Inherited //使用这个注解声明出来的自定义注解，在使用这个自定义注解的时候，如果注解在类上面，子类会自动继承此注解，否则子类不会继承，只对类有用
+@SpringBootConfiguration  //(spring boot的)标注这是一个SpringBoot配置类，可以将当前类声明的一个或者多个以@Bean注解标记的方法实例纳入Spring容器，并且实例名就是方法名
+@EnableAutoConfiguration  //(springboot)用于开启自动配置功能
 @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
-		@Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
+		@Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })  //扫描指定的包(spring)
 public @interface SpringBootApplication {
 
 	/**

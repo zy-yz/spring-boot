@@ -79,8 +79,8 @@ import org.springframework.core.io.support.SpringFactoriesLoader;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@AutoConfigurationPackage
-@Import(AutoConfigurationImportSelector.class)
+@AutoConfigurationPackage  //主要功能自动配置包，他会获取主程序类所在包路径，并将包路径下的所有组件注册到Spring IOC 容器中
+@Import(AutoConfigurationImportSelector.class)  //AutoConfigurationImportSelector ，导入自动配置相关的资源
 public @interface EnableAutoConfiguration {
 
 	String ENABLED_OVERRIDE_PROPERTY = "spring.boot.enableautoconfiguration";
