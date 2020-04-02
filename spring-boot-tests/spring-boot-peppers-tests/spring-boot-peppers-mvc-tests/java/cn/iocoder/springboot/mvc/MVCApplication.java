@@ -4,11 +4,18 @@ import cn.iocoder.springboot.mvc.config.TestProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * @author zhaoyu
+ */
 @SpringBootApplication(exclude = {SpringApplicationAdminJmxAutoConfiguration.class},
 		excludeName = "org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration1",
 		scanBasePackages = "cn.iocoder")
@@ -29,10 +36,12 @@ public class MVCApplication {
 
 	public static void main(String[] args) {
 //        BeanDefinitionLoader
+
+
 		ApplicationContext context = SpringApplication.run(MVCApplication.class, args);
 
 //        System.out.println(context.getBean(TestProperties.class).getPort());
-
+//
 //        Map<String, Object> properties = new HashMap<>();
 //        properties.put("test", true);
 //        new SpringApplicationBuilder().run(args);
