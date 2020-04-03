@@ -10,8 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author zhaoyu
@@ -34,17 +33,20 @@ public class MVCApplication {
 		return new Object();
 	}
 
+
 	public static void main(String[] args) {
 //        BeanDefinitionLoader
 
 
 		ApplicationContext context = SpringApplication.run(MVCApplication.class, args);
 
-//        System.out.println(context.getBean(TestProperties.class).getPort());
-//
-//        Map<String, Object> properties = new HashMap<>();
-//        properties.put("test", true);
-//        new SpringApplicationBuilder().run(args);
+        System.out.println(context.getBean(TestProperties.class).getPort());
+
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("test", true);
+        new SpringApplicationBuilder().run(args);
+
+
 	}
 
 }
